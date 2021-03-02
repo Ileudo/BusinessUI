@@ -70,10 +70,21 @@ body {
 }
 
 main {
-	min-height: 300vh;
+	@media (max-width: 768px) {
+		margin-top: 50px;
+	}
 }
 
 .header {
+	position: relative;
+	z-index: 20;
+	@media (max-width: 768px) {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: #fff;
+	}
 	/*ОБРАТИТЬ ВНИМАНИЕ! Задает высоту хэдера фиксом, а не через паддинги, как я хотел сделать. 
 		Задает высоту не самому тегу <header>, а его ближайшему потомку-обертке header-row.
 		Проще выровнять элементы по вертикали, используя flex, а не изголяясь с line-height для текста и vertical-align для img*/
@@ -549,6 +560,9 @@ main {
 	@media (max-width: 480px) {
 		line-height: 12px;
 		font-size: 8px;
+	}
+	&:hover {
+		text-decoration: underline;
 	}
 }
 
