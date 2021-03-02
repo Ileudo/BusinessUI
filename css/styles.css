@@ -145,9 +145,10 @@ body {
    .header {
       position: fixed;
       top: 0;
-      left: 0;
+      left: 0px;
       width: 100%;
       background-color: #fff;
+      padding: 0 15px;
    }
 }
 .header__row {
@@ -820,7 +821,6 @@ body {
 @media (max-width: 767px) {
    .header__row {
       height: 50px;
-      padding: 0 10px;
    }
 
    .header__logo {
