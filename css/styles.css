@@ -98,6 +98,21 @@ body {
    max-width: 1170px;
    margin: 0 auto;
 }
+@media (max-width: 992px) {
+   .container {
+      padding: 0 15px;
+   }
+}
+@media (max-width: 768px) {
+   .container {
+      padding: 0 15px;
+   }
+}
+@media (max-width: 480px) {
+   .container {
+      padding: 0 15px;
+   }
+}
 
 main {
    min-height: 300vh;
@@ -358,106 +373,268 @@ main {
 }
 
 /*=========================================NEWS&MEDIA==================================*/
-.media {
-   /*=========================================ADAPTIVE==================================*/
-   /*====================НОВЫЙ БРЕЙКПОИНТ==============*/
-   /*====================НОВЫЙ БРЕЙКПОИНТ==============*/
-   /*====================НОВЫЙ БРЕЙКПОИНТ==============*/
-}
+/*.media {
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__header-column {
+	}
+
+	&__title {
+	}
+
+	&__category {
+		display: inline-block;
+		font-size: 16px;
+		line-height: 16px;
+		letter-spacing: 1px;
+		color: #d3cfce;
+		font-weight: 700;
+		text-transform: uppercase;
+		&:not(:last-child) {
+			margin-right: 66px;
+		}
+		&:hover {
+			color: #007397;
+		}
+	}
+
+	&__body {
+		display: flex;
+		margin: 0 -15px;
+	}
+
+	&__column {
+		flex: 0 0 33.3333%;
+		padding: 0 15px;
+	}
+
+	.item-media {
+		&__category {
+			font-size: 12px;
+			line-height: 16px;
+			color: #ffffff;
+			margin-bottom: 30px;
+			overflow: hidden;
+			img {
+				max-width: 100%;
+			}
+		}
+
+		&__title {
+			position: absolute;
+			max-width: 310px;
+			width: calc(310 / 370 * 100%);
+			height: max-content;
+			top: 225px;
+			left: 30px;
+			font-size: 24px;
+			line-height: 32px;
+			letter-spacing: 1px;
+			color: #ffffff;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		&__text {
+			font-size: 16px;
+			line-height: 32px;
+			color: #646667;
+			margin-bottom: 35px;
+		}
+
+		&__link {
+			display: inline-block;
+			font-size: 16px;
+			line-height: 16px;
+			letter-spacing: 1px;
+			color: #007397;
+			font-weight: 700;
+			text-transform: uppercase;
+			transition: 0.3s 0s;
+			&:hover {
+				background-color: #007397;
+				color: #fff;
+			}
+		}		font-weight: 700;
+		}
+
+		&__image {
+			display: inline-block;
+			position: relative;
+			width: fit-content;
+			height: fit-content;
+
+	}*/
 .media__header {
    display: flex;
-   align-items: center;
    justify-content: space-between;
+   align-items: center;
+   margin-bottom: 40px;
 }
-.media__radio {
-   display: inline-block;
+@media (max-width: 768px) {
+   .media__header {
+      display: block;
+      margin-bottom: 20px;
+   }
+}
+@media (max-width: 768px) {
+   .media__title {
+      margin-bottom: 20px;
+   }
+}
+@media (max-width: 768px) {
+   .media__header-column:nth-child(2) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+   }
+}
+.media__category {
    font-size: 16px;
-   line-height: 16px;
-   letter-spacing: 1px;
    color: #d3cfce;
    font-weight: 700;
    text-transform: uppercase;
+   margin-left: 66px;
 }
-.media__radio:not(:last-child) {
-   margin-right: 66px;
+@media (max-width: 992px) {
+   .media__category {
+      margin-left: 50px;
+   }
 }
-.media__radio:hover {
+@media (max-width: 768px) {
+   .media__category {
+      margin: 0;
+   }
+}
+.media:hover {
    color: #007397;
 }
 .media__body {
    display: flex;
    margin: 0 -15px;
+   margin-bottom: 75px;
+}
+@media (max-width: 992px) {
+   .media__body {
+      flex-wrap: wrap;
+   }
 }
 .media__column {
    flex: 0 0 33.3333%;
    padding: 0 15px;
-}
-.media .item-media__radio {
-   font-size: 12px;
-   line-height: 16px;
-   color: #ffffff;
-   font-weight: 700;
-}
-.media .item-media__image {
-   display: inline-block;
-   position: relative;
-   width: -webkit-fit-content;
-   width: -moz-fit-content;
-   width: fit-content;
-   height: -webkit-fit-content;
-   height: -moz-fit-content;
-   height: fit-content;
-   margin-bottom: 30px;
-   overflow: hidden;
-}
-.media .item-media__image img {
-   max-width: 100%;
-}
-.media .item-media__title {
-   position: absolute;
-   max-width: 310px;
-   width: calc(310 / 370 * 100%);
-   height: -webkit-max-content;
-   height: max-content;
-   top: 225px;
-   left: 30px;
-   font-size: 24px;
-   line-height: 32px;
-   letter-spacing: 1px;
-   color: #ffffff;
-   font-weight: 700;
-   text-transform: uppercase;
-}
-.media .item-media__text {
-   font-size: 16px;
-   line-height: 32px;
-   color: #646667;
+   /*Отдельный отступ от нижней части последнего внутреннего блока и отдельный отступ от общего блока.
+   Таким оборазом при flex-wrap наш внутренний блок будет иметь собственный отступ и не склеиваться.*/
    margin-bottom: 35px;
 }
-.media .item-media__link {
-   display: inline-block;
+@media (max-width: 992px) {
+   .media__column {
+      flex: 0 0 50%;
+   }
+}
+@media (max-width: 630px) {
+   .media__column {
+      flex: 1 1 100%;
+   }
+}
+
+.item-media {
+   max-width: 500px;
+   margin: 0 auto;
+}
+.item-media__content {
+   height: 370px;
+   position: relative;
+   margin-bottom: 32px;
+}
+@media (max-width: 630px) {
+   .item-media__content {
+      margin-bottom: 15px;
+   }
+}
+.item-media__background-image {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+}
+.item-media__background-image--1 {
+   background-image: url("../images/Media/img1.jpg");
+}
+.item-media__background-image--2 {
+   background-image: url("../images/Media/img2.jpg");
+}
+.item-media__background-image--3 {
+   background-image: url("../images/Media/img3.jpg");
+}
+.item-media__content-figure {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   padding: 25px 30px;
+}
+.item-media__category {
+   font-size: 12px;
+   color: #fff;
+   font-weight: 700;
+}
+.item-media__category:hover {
+   text-decoration: underline;
+}
+.item-media__title {
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   padding: 0px 30px 70px 30px;
+   font-size: 24px;
+   color: #ffffff;
+   text-transform: uppercase;
+   font-weight: 700;
+}
+.item-media__title:hover {
+   text-decoration: underline;
+}
+.item-media__text {
+   flex: 1;
    font-size: 16px;
-   line-height: 16px;
-   letter-spacing: 1px;
+   color: #646667;
+   margin-bottom: 38px;
+}
+@media (max-width: 630px) {
+   .item-media__text {
+      margin-bottom: 15px;
+   }
+}
+.item-media__link {
+   font-size: 16px;
    color: #007397;
    font-weight: 700;
    text-transform: uppercase;
-   transition: 0.3s 0s;
 }
-.media .item-media__link:hover {
-   background-color: #007397;
-   color: #fff;
+.item-media__link:hover {
+   text-decoration: underline;
 }
+
+/*=========================================ADAPTIVE==================================*/
 @media (max-width: 1170px) {
-   .media .container {
+   .container {
       max-width: 970px;
       /*!*/
    }
-   .media .menu__list li {
+
+   .menu__list li {
       margin-right: 25px;
       /*!*/
    }
-   .media .motto__text {
+
+   .motto__text {
       max-width: 670px;
       /*!*/
       font-size: 28px;
@@ -465,65 +642,80 @@ main {
       line-height: 44px;
       /*!*/
    }
-   .media .index__parameter {
+
+   .index__parameter {
       font-size: 14px;
       line-height: 28px;
    }
-   .media .ir__title {
+
+   .ir__title {
       margin-bottom: 20px;
    }
-   .media .ir__text {
+   .ir__text {
       margin-bottom: 34px;
    }
-   .media .ir__index {
+   .ir__index {
       margin-bottom: 34px;
    }
-   .media .about {
+
+   .about {
       margin-bottom: 85px;
    }
-   .media .item-media__title {
+
+   .item-media__title {
       top: 175px;
    }
-   .media .item-media__image.bluebg:after {
+
+   .item-media__image.bluebg:after {
       width: 110%;
       height: 150%;
       top: -77px;
       left: -88px;
    }
 }
+/*====================НОВЫЙ БРЕЙКПОИНТ==============*/
 @media (max-width: 992px) {
-   .media .container {
+   .container {
       max-width: 750px;
       /*!*/
    }
-   .media .header__row {
+
+   .header__row {
       height: 70px;
    }
-   .media .menu__list li {
+
+   .menu__list li {
       margin-right: 15px;
       /*!*/
    }
-   .media .header__logo {
+
+   .header__logo {
       width: 130px;
    }
-   .media .menu__link {
+
+   .menu__link {
       font-size: 11px;
    }
-   .media .menu__link--location {
+
+   .menu__link--location {
       padding-right: 28px;
    }
-   .media .menu__link--location:after {
+
+   .menu__link--location:after {
       width: 18px;
       background-size: contain;
       right: 5px;
    }
-   .media .about__motto {
+
+   .about__motto {
       margin-bottom: 25px;
    }
-   .media .motto {
+
+   .motto {
       height: 300px;
    }
-   .media .motto__text {
+
+   .motto__text {
       max-width: 500px;
       /*!*/
       font-size: 20px;
@@ -532,62 +724,70 @@ main {
       /*!*/
       bottom: 50px;
    }
-   .media .text {
+
+   .text {
       font-size: 16px;
       line-height: 28px;
    }
-   .media .centered-block__button {
+
+   .centered-block__button {
       margin-top: 25px;
    }
-   .media .about {
+
+   .about {
       margin-bottom: 75px;
    }
-   .media .index__value {
+
+   .index__value {
       font-size: 44px;
    }
-   .media .index__parameter {
+
+   .index__parameter {
       font-size: 11px;
       line-height: 22px;
    }
-   .media .ir__title {
+
+   .ir__title {
       margin-bottom: 16px;
    }
-   .media .ir__text {
+   .ir__text {
       margin-bottom: 26px;
    }
-   .media .ir__index {
+   .ir__index {
       margin-bottom: 26px;
    }
-   .media .about {
+
+   .about {
       margin-bottom: 60px;
    }
-   .media .item-media__image.bluebg:after {
+
+   .item-media__image.bluebg:after {
       width: 110%;
       height: 150%;
       top: -77px;
       left: -60px;
    }
-   .media .item-media__title {
+
+   .item-media__title {
       top: 75px;
       font-size: 18px;
       line-height: 24px;
       max-width: 75%;
    }
 }
+/*====================НОВЫЙ БРЕЙКПОИНТ==============*/
 @media (max-width: 767px) {
-   .media {
-      /*В заготовках в свойствах бургера прописана позиция абсолют, 
-      но html-код в данной ситуации позволяет отказаться от абсолюта.*/
-   }
-   .media .header__row {
+   .header__row {
       height: 50px;
       padding: 0 10px;
    }
-   .media .header__logo {
+
+   .header__logo {
       position: relative;
       z-index: 2;
    }
-   .media .header__menu {
+
+   .header__menu {
       position: fixed;
       width: 100%;
       height: 100%;
@@ -601,24 +801,30 @@ main {
       /*Важный элемент адаптива, чтобы можно было на узких мобилках долистать до всех пунктов меню*/
       transition: 0.5s 0s;
    }
-   .media .header__menu.active {
+   .header__menu.active {
       top: 0;
    }
-   .media .menu__list {
+
+   .menu__list {
       display: block;
    }
-   .media .menu__list li {
+
+   .menu__list li {
       text-align: center;
       margin: 0;
       padding-bottom: 30px;
    }
-   .media .menu__list li:last-child {
+   .menu__list li:last-child {
       padding-bottom: 0;
    }
-   .media .menu__link {
+
+   .menu__link {
       font-size: 16px;
    }
-   .media .header__burger {
+
+   /*В заготовках в свойствах бургера прописана позиция абсолют, 
+   но html-код в данной ситуации позволяет отказаться от абсолюта.*/
+   .header__burger {
       display: block;
       /*Задает для бургера block, а не inline-block. 
       Но разницы наверное нет, так как высота и ширина фикс.*/
@@ -629,7 +835,8 @@ main {
       /*!*/
       z-index: 2;
    }
-   .media .header__burger span {
+
+   .header__burger span {
       position: absolute;
       width: 100%;
       height: 4px;
@@ -638,94 +845,107 @@ main {
       transition: 0.3s 0s;
       /*!*/
    }
-   .media .header__burger span:nth-child(1) {
+
+   .header__burger span:nth-child(1) {
       top: 0;
    }
-   .media .header__burger span:nth-child(2) {
+
+   .header__burger span:nth-child(2) {
       top: 13px;
       height: 4px;
    }
-   .media .header__burger span:nth-child(3) {
+
+   .header__burger span:nth-child(3) {
       bottom: 0;
    }
-   .media .header__burger.active span:nth-child(1) {
+
+   .header__burger.active span:nth-child(1) {
       transform: rotate(-45deg);
       top: 13px;
    }
-   .media .header__burger.active span:nth-child(2) {
+
+   .header__burger.active span:nth-child(2) {
       display: none;
    }
-   .media .header__burger.active span:nth-child(3) {
+
+   .header__burger.active span:nth-child(3) {
       transform: rotate(45deg);
       bottom: 13px;
    }
-   .media .motto {
+
+   .motto {
       height: auto;
       min-height: 250px;
       display: flex;
       justify-content: center;
       align-items: center;
    }
-   .media .motto__text {
+
+   .motto__text {
       max-width: none;
       text-align: center;
       padding: 20px;
       position: relative;
       bottom: 0;
    }
-   .media .button {
+
+   .button {
       font-size: 14px;
    }
-   .media .about {
+
+   .about {
       margin-bottom: 50px;
    }
-   .media .ir__title {
+
+   .ir__title {
       margin-bottom: 12px;
    }
-   .media .ir__text {
+   .ir__text {
       margin-bottom: 20px;
    }
-   .media .ir__index {
+   .ir__index {
       margin-bottom: 20px;
    }
-   .media .index {
+
+   .index {
       flex-wrap: wrap;
       justify-content: flex-start;
    }
-   .media .index__item {
+
+   .index__item {
       flex: 0 0 50%;
    }
-   .media .index__item--big {
+   .index__item--big {
       flex: 0 0 100%;
    }
-   .media .index__value {
+
+   .index__value {
       font-size: 36px;
    }
-   .media .index__parameter {
+
+   .index__parameter {
       font-size: 11px;
       line-height: 22px;
    }
-   .media .title {
+
+   .title {
       font-size: 25px;
       line-height: 33px;
    }
-   .media .text {
+
+   .text {
       font-size: 16px;
       line-height: 24px;
    }
-   .media .media__radio:not(:last-child) {
-      margin-right: 18px;
-   }
 }
+/*====================НОВЫЙ БРЕЙКПОИНТ==============*/
 @media (max-width: 480px) {
-   .media .ir {
+   .ir {
       text-align: center;
    }
-   .media .button {
+
+   .button {
       display: flex;
       justify-content: center;
-   }
-   .media .media__radio:not(:last-child) {
-      margin-right: 27px;
    }
 }
