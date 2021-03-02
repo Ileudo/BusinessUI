@@ -78,6 +78,9 @@ main {
 .header {
 	position: relative;
 	z-index: 20;
+	@media (min-width: 768px) and (max-width: 992px) {
+		margin-top: 30px;
+	}
 	@media (max-width: 768px) {
 		position: fixed;
 		top: 0;
@@ -95,6 +98,10 @@ main {
 		align-items: center;
 		height: 100px;
 		/*line-height: 100px;*/
+		@media (min-width: 768px) and (max-width: 992px) {
+			display: block;
+			text-align: left;
+		}
 	}
 
 	&__logo {
@@ -126,12 +133,16 @@ main {
 	&__list {
 		display: flex;
 		align-items: center;
-		li {
-			margin-right: 27px;
+		margin-top: 8px;
+		@media (min-width: 768px) and (max-width: 992px) {
+			justify-content: space-between;
 		}
-		li:last-child {
-			margin-right: 0;
-		}
+	}
+	li {
+		margin-right: 27px;
+	}
+	li:last-child {
+		margin-right: 0;
 	}
 
 	&__link {
@@ -142,7 +153,6 @@ main {
 		color: #646667;
 		text-transform: uppercase;
 		letter-spacing: 1px;
-
 		span {
 			position: relative; /*!*/
 			display: block;
@@ -625,14 +635,14 @@ main {
 	}
 
 	.menu__list li {
-		margin-right: 15px; /*!*/
+		margin-right: 10px; /*!*/
 	}
 	.header__logo {
 		width: 130px;
 	}
 
 	.menu__link {
-		font-size: 11px;
+		font-size: 10px;
 	}
 
 	.menu__link--location {

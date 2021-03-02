@@ -141,6 +141,11 @@ body {
    	Проще выровнять элементы по вертикали, используя flex, а не изголяясь с line-height для текста и vertical-align для img*/
    /*ОБРАТИТЬ ВНИМАНИЕ! На кучу лишнего кода при вставки адаптивных изображений.*/
 }
+@media (min-width: 768px) and (max-width: 992px) {
+   .header {
+      margin-top: 30px;
+   }
+}
 @media (max-width: 768px) {
    .header {
       position: fixed;
@@ -158,6 +163,12 @@ body {
    align-items: center;
    height: 100px;
    /*line-height: 100px;*/
+}
+@media (min-width: 768px) and (max-width: 992px) {
+   .header__row {
+      display: block;
+      text-align: left;
+   }
 }
 .header__logo {
    display: inline-block;
@@ -184,11 +195,17 @@ body {
 .menu__list {
    display: flex;
    align-items: center;
+   margin-top: 8px;
 }
-.menu__list li {
+@media (min-width: 768px) and (max-width: 992px) {
+   .menu__list {
+      justify-content: space-between;
+   }
+}
+.menu li {
    margin-right: 27px;
 }
-.menu__list li:last-child {
+.menu li:last-child {
    margin-right: 0;
 }
 .menu__link {
@@ -727,7 +744,7 @@ body {
    }
 
    .menu__list li {
-      margin-right: 15px;
+      margin-right: 10px;
       /*!*/
    }
 
@@ -736,7 +753,7 @@ body {
    }
 
    .menu__link {
-      font-size: 11px;
+      font-size: 10px;
    }
 
    .menu__link--location {
