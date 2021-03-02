@@ -1,0 +1,731 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap");
+* {
+   margin: 0;
+   padding: 0;
+}
+
+*,
+:before,
+:after {
+   box-sizing: border-box;
+}
+
+ul li {
+   list-style-type: none;
+}
+
+img {
+   vertical-align: top;
+   max-width: 100%;
+}
+
+a,
+a:visited,
+a:hover {
+   text-decoration: none;
+}
+
+a,
+button {
+   cursor: pointer;
+}
+
+html,
+body {
+   height: 100%;
+   width: 100%;
+   min-width: 320px;
+}
+
+.ibg {
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+
+.ibg img {
+   display: none;
+}
+
+/*Шрифты*/
+/*===================*/
+.bluebg {
+   position: relative;
+   overflow: hidden;
+}
+.bluebg:after {
+   content: "";
+   background-image: linear-gradient(198deg, #007397 0%, rgba(0, 115, 151, 0) 100%);
+   transform: rotate(18deg);
+   position: absolute;
+   /*Сомневался. Фиксированное значение ширины норм. Он даже не указал max-width. 
+   'В идеале, конечно, в этом квадврате вместо пиксельных значений надо подгонять по процентам всё.'*/
+   width: 35%;
+   height: 130%;
+   top: -95px;
+   left: -50px;
+   opacity: 0.5;
+}
+
+.title {
+   font-size: 32px;
+   line-height: 48px;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   font-weight: 700;
+   color: #3c3f3d;
+   font-family: "PT Serif", serif;
+}
+
+/*===================*/
+:root {
+   font-size: calc(0.4 * 1em + 0.5 * 1vw * 16 / 14.4);
+}
+
+body {
+   font-family: "Montserrat", sans-serif;
+}
+
+.wrapper {
+   min-height: 100%;
+   width: 100%;
+}
+
+.container {
+   width: 100%;
+   max-width: 1170px;
+   margin: 0 auto;
+}
+
+main {
+   min-height: 300vh;
+}
+
+.header {
+   /*ОБРАТИТЬ ВНИМАНИЕ! Задает высоту хэдера фиксом, а не через паддинги, как я хотел сделать. 
+   	Задает высоту не самому тегу <header>, а его ближайшему потомку-обертке header-row.
+   	Проще выровнять элементы по вертикали, используя flex, а не изголяясь с line-height для текста и vertical-align для img*/
+   /*ОБРАТИТЬ ВНИМАНИЕ! На кучу лишнего кода при вставки адаптивных изображений.*/
+}
+.header__row {
+   display: flex;
+   justify-content: space-between;
+   /*Space-between как более понятная и управляемая альтернатива margin-right:auto.*/
+   align-items: center;
+   height: 100px;
+   /*line-height: 100px;*/
+}
+.header__logo {
+   display: inline-block;
+   /*!*/
+   /*margin-right: auto;*/
+   width: 172px;
+   /*!*/
+   /*height: 20px;
+   position: relative;*/
+}
+.header__logo img {
+   max-width: 100%;
+   /*!*/
+   vertical-align: middle;
+   /* position: absolute;
+   height: 100%;
+   top: 0;
+   left: 0;
+   object-fit: contain;*/
+}
+.header__burger {
+   display: none;
+}
+.menu__list {
+   display: flex;
+   align-items: center;
+}
+.menu__list li {
+   margin-right: 27px;
+}
+.menu__list li:last-child {
+   margin-right: 0;
+}
+.menu__link {
+   font-size: 12px;
+   display: inline-block;
+   line-height: 28px;
+   font-weight: 700;
+   color: #646667;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+}
+.menu__link span {
+   position: relative;
+   /*!*/
+   display: block;
+}
+.menu__link span:after {
+   content: "";
+   position: absolute;
+   /*!*/
+   left: 50%;
+   /*!*/
+   width: 0;
+   /*!*/
+   height: 1px;
+   /*!*/
+   background-color: #007397;
+   /*!*/
+   bottom: 0;
+   /*!*/
+   transition: 0.3s 0s;
+   /*!*/
+}
+.menu__link:hover {
+   color: #007397;
+   /*!*/
+}
+.menu__link:hover span:after {
+   left: 0;
+   /*!*/
+   width: 100%;
+   /*!*/
+}
+.menu__link--location {
+   position: relative;
+   padding-right: 42px;
+}
+.menu__link--location:after {
+   content: "";
+   position: absolute;
+   top: 0px;
+   right: 7px;
+   width: 28px;
+   height: 28px;
+   background: url("../images/Header/icon1.svg") center no-repeat;
+   background-size: cover;
+}
+
+/*=======================================MOTTTO===========================================================*/
+.about {
+   margin-bottom: 92px;
+}
+.about__motto {
+   margin-bottom: 40px;
+}
+
+.motto {
+   position: relative;
+   height: 411px;
+   /*Можно по-разному задавать высоту. Пробовать процентами через паддинг. Но сейчас это не нужно, поэтому оставлю фикс.*/
+}
+.motto__picture {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-image: url("../images/Motto/img1.jpg");
+   top: 0;
+   left: 0;
+}
+.motto__text {
+   position: absolute;
+   max-width: 770px;
+   /*Я задал Width, а он задал Max-Width. Его вариант лучше для адаптива. Фиксированное значение норм.*/
+   bottom: 80px;
+   right: 0;
+   padding-right: 20px;
+   font-size: 32px;
+   line-height: 48px;
+   letter-spacing: 1px;
+   text-shadow: 0 3px 1px rgba(0, 0, 0, 0.6);
+   text-transform: uppercase;
+   font-family: "PT Serif", serif;
+   color: #ffffff;
+   font-weight: 700;
+}
+
+.button {
+   display: inline-block;
+   background-color: #007397;
+   padding: 0px 30px;
+   /*!*/
+   height: 56px;
+   /*Задает высоту кнопки через фикс, а не через верхний и нижний паддинг, как делал я. Не знаю почему.*/
+   line-height: 56px;
+   /*!*/
+   font-size: 16px;
+   color: #ffffff;
+   font-weight: 700;
+   text-transform: uppercase;
+   cursor: pointer;
+   position: relative;
+   /*Сначала :hover, потом :after. Можно использовать, но в такой последовательности*/
+}
+.button span {
+   position: relative;
+   z-index: 1;
+   /*'Я сделал span для того, чтобы поднять z-index'. Z-index работает только для позиционированных элементов, поэтому задаем нашему span позицию relative.*/
+}
+.button:after {
+   content: "";
+   position: absolute;
+   width: 0;
+   height: 100%;
+   top: 0;
+   left: 50%;
+   background-color: #00526b;
+   transition: 0.3s 0s;
+   /*!*/
+}
+.button:hover:after {
+   width: 100%;
+   left: 0;
+}
+
+.text {
+   font-size: 20px;
+   line-height: 36px;
+   color: #646667;
+   font-weight: 300;
+}
+
+.centered-block {
+   text-align: center;
+   /*Переписал HTML код, чтобы вставить здесь этот text-align*/
+}
+.centered-block__text {
+   max-width: 970px;
+   /*!*/
+   margin: 0 auto;
+   /*!*/
+}
+.centered-block__button {
+   margin-top: 40px;
+}
+
+/*================================INVESTOК RELATIONS=============================*/
+.ir {
+   margin-bottom: 100px;
+}
+.ir__title {
+   margin-bottom: 24px;
+}
+.ir__text {
+   margin-bottom: 40px;
+   max-width: 670px;
+   /*!*/
+}
+.ir__index {
+   margin: 0px -5px 50px -5px;
+   /*!*/
+}
+.ir__button {
+   min-width: 270px;
+   /*!*/
+   text-align: center;
+   /*!*/
+}
+
+.index {
+   display: flex;
+   justify-content: space-between;
+}
+.index__item {
+   flex: 0 0 calc(170 / 1170 * 100%);
+   /*!*/
+   padding: 0 5px;
+   /*!*/
+}
+.index__item--big {
+   flex: 0 0 calc(370 / 1170 * 100%);
+}
+.index__body {
+   display: flex;
+   flex-direction: column;
+}
+.index__value {
+   font-size: 54px;
+   line-height: 1;
+   text-transform: uppercase;
+   color: #007397;
+   font-family: "PT Serif", serif;
+   text-align: center;
+}
+.index__parameter {
+   font-size: 16px;
+   line-height: 32px;
+   color: #aec3d4;
+   text-align: center;
+}
+
+/*=========================================NEWS&MEDIA==================================*/
+.media {
+   /*=========================================ADAPTIVE==================================*/
+   /*====================НОВЫЙ БРЕЙКПОИНТ==============*/
+   /*====================НОВЫЙ БРЕЙКПОИНТ==============*/
+   /*====================НОВЫЙ БРЕЙКПОИНТ==============*/
+}
+.media__header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.media__radio {
+   display: inline-block;
+   font-size: 16px;
+   line-height: 16px;
+   letter-spacing: 1px;
+   color: #d3cfce;
+   font-weight: 700;
+   text-transform: uppercase;
+}
+.media__radio:not(:last-child) {
+   margin-right: 66px;
+}
+.media__radio:hover {
+   color: #007397;
+}
+.media__body {
+   display: flex;
+   margin: 0 -15px;
+}
+.media__column {
+   flex: 0 0 33.3333%;
+   padding: 0 15px;
+}
+.media .item-media__radio {
+   font-size: 12px;
+   line-height: 16px;
+   color: #ffffff;
+   font-weight: 700;
+}
+.media .item-media__image {
+   display: inline-block;
+   position: relative;
+   width: -webkit-fit-content;
+   width: -moz-fit-content;
+   width: fit-content;
+   height: -webkit-fit-content;
+   height: -moz-fit-content;
+   height: fit-content;
+   margin-bottom: 30px;
+   overflow: hidden;
+}
+.media .item-media__image img {
+   max-width: 100%;
+}
+.media .item-media__title {
+   position: absolute;
+   max-width: 310px;
+   width: calc(310 / 370 * 100%);
+   height: -webkit-max-content;
+   height: max-content;
+   top: 225px;
+   left: 30px;
+   font-size: 24px;
+   line-height: 32px;
+   letter-spacing: 1px;
+   color: #ffffff;
+   font-weight: 700;
+   text-transform: uppercase;
+}
+.media .item-media__text {
+   font-size: 16px;
+   line-height: 32px;
+   color: #646667;
+   margin-bottom: 35px;
+}
+.media .item-media__link {
+   display: inline-block;
+   font-size: 16px;
+   line-height: 16px;
+   letter-spacing: 1px;
+   color: #007397;
+   font-weight: 700;
+   text-transform: uppercase;
+   transition: 0.3s 0s;
+}
+.media .item-media__link:hover {
+   background-color: #007397;
+   color: #fff;
+}
+@media (max-width: 1170px) {
+   .media .container {
+      max-width: 970px;
+      /*!*/
+   }
+   .media .menu__list li {
+      margin-right: 25px;
+      /*!*/
+   }
+   .media .motto__text {
+      max-width: 670px;
+      /*!*/
+      font-size: 28px;
+      /*!*/
+      line-height: 44px;
+      /*!*/
+   }
+   .media .index__parameter {
+      font-size: 14px;
+      line-height: 28px;
+   }
+   .media .ir__title {
+      margin-bottom: 20px;
+   }
+   .media .ir__text {
+      margin-bottom: 34px;
+   }
+   .media .ir__index {
+      margin-bottom: 34px;
+   }
+   .media .about {
+      margin-bottom: 85px;
+   }
+   .media .item-media__title {
+      top: 175px;
+   }
+   .media .item-media__image.bluebg:after {
+      width: 110%;
+      height: 150%;
+      top: -77px;
+      left: -88px;
+   }
+}
+@media (max-width: 992px) {
+   .media .container {
+      max-width: 750px;
+      /*!*/
+   }
+   .media .header__row {
+      height: 70px;
+   }
+   .media .menu__list li {
+      margin-right: 15px;
+      /*!*/
+   }
+   .media .header__logo {
+      width: 130px;
+   }
+   .media .menu__link {
+      font-size: 11px;
+   }
+   .media .menu__link--location {
+      padding-right: 28px;
+   }
+   .media .menu__link--location:after {
+      width: 18px;
+      background-size: contain;
+      right: 5px;
+   }
+   .media .about__motto {
+      margin-bottom: 25px;
+   }
+   .media .motto {
+      height: 300px;
+   }
+   .media .motto__text {
+      max-width: 500px;
+      /*!*/
+      font-size: 20px;
+      /*!*/
+      line-height: 35px;
+      /*!*/
+      bottom: 50px;
+   }
+   .media .text {
+      font-size: 16px;
+      line-height: 28px;
+   }
+   .media .centered-block__button {
+      margin-top: 25px;
+   }
+   .media .about {
+      margin-bottom: 75px;
+   }
+   .media .index__value {
+      font-size: 44px;
+   }
+   .media .index__parameter {
+      font-size: 11px;
+      line-height: 22px;
+   }
+   .media .ir__title {
+      margin-bottom: 16px;
+   }
+   .media .ir__text {
+      margin-bottom: 26px;
+   }
+   .media .ir__index {
+      margin-bottom: 26px;
+   }
+   .media .about {
+      margin-bottom: 60px;
+   }
+   .media .item-media__image.bluebg:after {
+      width: 110%;
+      height: 150%;
+      top: -77px;
+      left: -60px;
+   }
+   .media .item-media__title {
+      top: 75px;
+      font-size: 18px;
+      line-height: 24px;
+      max-width: 75%;
+   }
+}
+@media (max-width: 767px) {
+   .media {
+      /*В заготовках в свойствах бургера прописана позиция абсолют, 
+      но html-код в данной ситуации позволяет отказаться от абсолюта.*/
+   }
+   .media .header__row {
+      height: 50px;
+      padding: 0 10px;
+   }
+   .media .header__logo {
+      position: relative;
+      z-index: 2;
+   }
+   .media .header__menu {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: -100%;
+      left: 0;
+      /*По умолчанию убираем меню, чтобы вызвать его далее при нажатии на бургер*/
+      z-index: 1;
+      background-color: #fff;
+      padding: 100px 10px 20px 10px;
+      overflow: auto;
+      /*Важный элемент адаптива, чтобы можно было на узких мобилках долистать до всех пунктов меню*/
+      transition: 0.5s 0s;
+   }
+   .media .header__menu.active {
+      top: 0;
+   }
+   .media .menu__list {
+      display: block;
+   }
+   .media .menu__list li {
+      text-align: center;
+      margin: 0;
+      padding-bottom: 30px;
+   }
+   .media .menu__list li:last-child {
+      padding-bottom: 0;
+   }
+   .media .menu__link {
+      font-size: 16px;
+   }
+   .media .header__burger {
+      display: block;
+      /*Задает для бургера block, а не inline-block. 
+      Но разницы наверное нет, так как высота и ширина фикс.*/
+      width: 40px;
+      height: 30px;
+      position: relative;
+      cursor: pointer;
+      /*!*/
+      z-index: 2;
+   }
+   .media .header__burger span {
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      left: 0;
+      background-color: #646667;
+      transition: 0.3s 0s;
+      /*!*/
+   }
+   .media .header__burger span:nth-child(1) {
+      top: 0;
+   }
+   .media .header__burger span:nth-child(2) {
+      top: 13px;
+      height: 4px;
+   }
+   .media .header__burger span:nth-child(3) {
+      bottom: 0;
+   }
+   .media .header__burger.active span:nth-child(1) {
+      transform: rotate(-45deg);
+      top: 13px;
+   }
+   .media .header__burger.active span:nth-child(2) {
+      display: none;
+   }
+   .media .header__burger.active span:nth-child(3) {
+      transform: rotate(45deg);
+      bottom: 13px;
+   }
+   .media .motto {
+      height: auto;
+      min-height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   .media .motto__text {
+      max-width: none;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      bottom: 0;
+   }
+   .media .button {
+      font-size: 14px;
+   }
+   .media .about {
+      margin-bottom: 50px;
+   }
+   .media .ir__title {
+      margin-bottom: 12px;
+   }
+   .media .ir__text {
+      margin-bottom: 20px;
+   }
+   .media .ir__index {
+      margin-bottom: 20px;
+   }
+   .media .index {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+   }
+   .media .index__item {
+      flex: 0 0 50%;
+   }
+   .media .index__item--big {
+      flex: 0 0 100%;
+   }
+   .media .index__value {
+      font-size: 36px;
+   }
+   .media .index__parameter {
+      font-size: 11px;
+      line-height: 22px;
+   }
+   .media .title {
+      font-size: 25px;
+      line-height: 33px;
+   }
+   .media .text {
+      font-size: 16px;
+      line-height: 24px;
+   }
+   .media .media__radio:not(:last-child) {
+      margin-right: 18px;
+   }
+}
+@media (max-width: 480px) {
+   .media .ir {
+      text-align: center;
+   }
+   .media .button {
+      display: flex;
+      justify-content: center;
+   }
+   .media .media__radio:not(:last-child) {
+      margin-right: 27px;
+   }
+}

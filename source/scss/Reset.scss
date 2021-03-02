@@ -1,0 +1,37 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+:before,
+:after {
+	box-sizing: border-box;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+img {
+	vertical-align: top;
+	max-width: 100%;
+}
+
+a,
+a:visited,
+a:hover {
+	text-decoration: none;
+}
+
+a,
+button {
+	cursor: pointer;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	min-width: 320px;
+}

@@ -1,0 +1,721 @@
+@import "Reset.scss";
+@import "ibg.scss";
+/*Шрифты*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap");
+/*===================*/
+.bluebg {
+	position: relative;
+	overflow: hidden;
+	&:after {
+		content: "";
+		background-image: linear-gradient(198deg, #007397 0%, rgba(0, 115, 151, 0) 100%);
+		transform: rotate(18deg);
+		position: absolute;
+		/*Сомневался. Фиксированное значение ширины норм. Он даже не указал max-width. 
+		'В идеале, конечно, в этом квадврате вместо пиксельных значений надо подгонять по процентам всё.'*/
+		width: 35%;
+		height: 130%;
+		top: -95px;
+		left: -50px;
+		opacity: 0.5;
+	}
+}
+
+.title {
+	font-size: 32px;
+	line-height: 48px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #3c3f3d;
+	font-family: "PT Serif", serif;
+}
+/*===================*/
+:root {
+	font-size: calc(0.4 * 1em + 0.5 * 1vw * 16 / 14.4);
+}
+
+body {
+	font-family: "Montserrat", sans-serif;
+}
+
+.wrapper {
+	min-height: 100%;
+	width: 100%;
+}
+
+.container {
+	width: 100%;
+	max-width: 1170px;
+	margin: 0 auto;
+}
+
+main {
+	min-height: 300vh;
+}
+
+.header {
+	/*ОБРАТИТЬ ВНИМАНИЕ! Задает высоту хэдера фиксом, а не через паддинги, как я хотел сделать. 
+		Задает высоту не самому тегу <header>, а его ближайшему потомку-обертке header-row.
+		Проще выровнять элементы по вертикали, используя flex, а не изголяясь с line-height для текста и vertical-align для img*/
+	&__row {
+		display: flex;
+		justify-content: space-between; /*Space-between как более понятная и управляемая альтернатива margin-right:auto.*/
+		align-items: center;
+		height: 100px;
+		/*line-height: 100px;*/
+	}
+
+	&__logo {
+		display: inline-block; /*!*/
+		/*margin-right: auto;*/
+		width: 172px; /*!*/
+		/*height: 20px;
+		position: relative;*/
+	}
+	/*ОБРАТИТЬ ВНИМАНИЕ! На кучу лишнего кода при вставки адаптивных изображений.*/
+	&__logo img {
+		max-width: 100%; /*!*/
+		vertical-align: middle;
+		/* position: absolute;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: contain;*/
+	}
+
+	&__burger {
+		display: none;
+	}
+
+	&__menu {
+	}
+}
+.menu {
+	&__list {
+		display: flex;
+		align-items: center;
+		li {
+			margin-right: 27px;
+		}
+		li:last-child {
+			margin-right: 0;
+		}
+	}
+
+	&__link {
+		font-size: 12px;
+		display: inline-block;
+		line-height: 28px;
+		font-weight: 700;
+		color: #646667;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+
+		span {
+			position: relative; /*!*/
+			display: block;
+			&:after {
+				content: "";
+				position: absolute; /*!*/
+				left: 50%; /*!*/
+				width: 0; /*!*/
+				height: 1px; /*!*/
+				background-color: #007397; /*!*/
+				bottom: 0; /*!*/
+				transition: 0.3s 0s; /*!*/
+			}
+		}
+		&:hover {
+			color: #007397; /*!*/
+			span:after {
+				left: 0; /*!*/
+				width: 100%; /*!*/
+			}
+		}
+	}
+
+	&__link--location {
+		position: relative;
+		padding-right: 42px;
+	}
+
+	&__link--location:after {
+		content: "";
+		position: absolute;
+		top: 0px;
+		right: 7px;
+		width: 28px;
+		height: 28px;
+		background: url("../images/Header/icon1.svg") center no-repeat;
+		background-size: cover;
+	}
+}
+/*=======================================MOTTTO===========================================================*/
+.about {
+	margin-bottom: 92px;
+	&__motto {
+		margin-bottom: 40px;
+	}
+}
+
+.motto {
+	position: relative;
+	height: 411px; /*Можно по-разному задавать высоту. Пробовать процентами через паддинг. Но сейчас это не нужно, поэтому оставлю фикс.*/
+	&__picture {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-image: url("../images/Motto/img1.jpg");
+		top: 0;
+		left: 0;
+	}
+	&__text {
+		position: absolute;
+		max-width: 770px; /*Я задал Width, а он задал Max-Width. Его вариант лучше для адаптива. Фиксированное значение норм.*/
+		bottom: 80px;
+		right: 0;
+		padding-right: 20px;
+		font-size: 32px;
+		line-height: 48px;
+		letter-spacing: 1px;
+		text-shadow: 0 3px 1px rgba(0, 0, 0, 0.6);
+		text-transform: uppercase;
+		font-family: "PT Serif", serif;
+		color: #ffffff;
+		font-weight: 700;
+	}
+}
+
+.button {
+	display: inline-block;
+	background-color: #007397;
+	padding: 0px 30px; /*!*/
+	height: 56px; /*Задает высоту кнопки через фикс, а не через верхний и нижний паддинг, как делал я. Не знаю почему.*/
+	line-height: 56px; /*!*/
+	font-size: 16px;
+	color: #ffffff;
+	font-weight: 700;
+	text-transform: uppercase;
+	cursor: pointer;
+	position: relative;
+	span {
+		position: relative;
+		z-index: 1; /*'Я сделал span для того, чтобы поднять z-index'. Z-index работает только для позиционированных элементов, поэтому задаем нашему span позицию relative.*/
+	}
+	&:after {
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 100%;
+		top: 0;
+		left: 50%;
+		background-color: #00526b;
+		transition: 0.3s 0s; /*!*/
+	}
+	/*Сначала :hover, потом :after. Можно использовать, но в такой последовательности*/
+	&:hover {
+		&:after {
+			width: 100%;
+			left: 0;
+		}
+	}
+}
+
+.text {
+	font-size: 20px;
+	line-height: 36px;
+	color: #646667;
+	font-weight: 300;
+}
+
+.centered-block {
+	text-align: center; /*Переписал HTML код, чтобы вставить здесь этот text-align*/
+	&__text {
+		max-width: 970px; /*!*/
+		margin: 0 auto; /*!*/
+	}
+
+	&__button {
+		margin-top: 40px;
+	}
+}
+/*================================INVESTOК RELATIONS=============================*/
+.ir {
+	margin-bottom: 100px;
+	&__title {
+		margin-bottom: 24px;
+	}
+
+	&__text {
+		margin-bottom: 40px;
+		max-width: 670px; /*!*/
+	}
+
+	&__index {
+		margin: 0px -5px 50px -5px; /*!*/
+	}
+
+	&__button {
+		min-width: 270px; /*!*/
+		text-align: center; /*!*/
+	}
+}
+
+.index {
+	display: flex;
+	justify-content: space-between;
+	&__item {
+		flex: 0 0 calc(170 / 1170 * 100%); /*!*/
+		padding: 0 5px; /*!*/
+		&--big {
+			flex: 0 0 calc(370 / 1170 * 100%);
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__value {
+		font-size: 54px;
+		line-height: 1;
+		text-transform: uppercase;
+		color: #007397;
+		font-family: "PT Serif", serif;
+		text-align: center;
+	}
+
+	&__parameter {
+		font-size: 16px;
+		line-height: 32px;
+		color: #aec3d4;
+		text-align: center;
+	}
+}
+
+/*=========================================NEWS&MEDIA==================================*/
+
+.media {
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__header-column {
+	}
+
+	&__title {
+	}
+
+	&__radio {
+		display: inline-block;
+		font-size: 16px;
+		line-height: 16px;
+		letter-spacing: 1px;
+		color: #d3cfce;
+		font-weight: 700;
+		text-transform: uppercase;
+		&:not(:last-child) {
+			margin-right: 66px;
+		}
+		&:hover {
+			color: #007397;
+		}
+	}
+
+	&__body {
+		display: flex;
+		margin: 0 -15px;
+	}
+
+	&__column {
+		flex: 0 0 33.3333%;
+		padding: 0 15px;
+	}
+
+	.item-media {
+		&__radio {
+			font-size: 12px;
+			line-height: 16px;
+			color: #ffffff;
+			font-weight: 700;
+		}
+
+		&__image {
+			display: inline-block;
+			position: relative;
+			width: fit-content;
+			height: fit-content;
+			margin-bottom: 30px;
+			overflow: hidden;
+			img {
+				max-width: 100%;
+			}
+		}
+
+		&__title {
+			position: absolute;
+			max-width: 310px;
+			width: calc(310 / 370 * 100%);
+			height: max-content;
+			top: 225px;
+			left: 30px;
+			font-size: 24px;
+			line-height: 32px;
+			letter-spacing: 1px;
+			color: #ffffff;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+
+		&__text {
+			font-size: 16px;
+			line-height: 32px;
+			color: #646667;
+			margin-bottom: 35px;
+		}
+
+		&__link {
+			display: inline-block;
+			font-size: 16px;
+			line-height: 16px;
+			letter-spacing: 1px;
+			color: #007397;
+			font-weight: 700;
+			text-transform: uppercase;
+			transition: 0.3s 0s;
+			&:hover {
+				background-color: #007397;
+				color: #fff;
+			}
+		}
+	}
+
+	/*=========================================ADAPTIVE==================================*/
+	@media (max-width: 1170px) {
+		.container {
+			max-width: 970px; /*!*/
+		}
+		.menu__list li {
+			margin-right: 25px; /*!*/
+		}
+
+		.motto__text {
+			max-width: 670px; /*!*/
+			font-size: 28px; /*!*/
+			line-height: 44px; /*!*/
+		}
+		.index__parameter {
+			font-size: 14px;
+			line-height: 28px;
+		}
+
+		.ir {
+			&__title {
+				margin-bottom: 20px;
+			}
+			&__text {
+				margin-bottom: 34px;
+			}
+			&__index {
+				margin-bottom: 34px;
+			}
+		}
+
+		.about {
+			margin-bottom: 85px;
+		}
+
+		.item-media__title {
+			top: 175px;
+		}
+
+		.item-media__image.bluebg {
+			&:after {
+				width: 110%;
+				height: 150%;
+				top: -77px;
+				left: -88px;
+			}
+		}
+	}
+	/*====================НОВЫЙ БРЕЙКПОИНТ==============*/
+	@media (max-width: 992px) {
+		.container {
+			max-width: 750px; /*!*/
+		}
+		.header__row {
+			height: 70px;
+		}
+
+		.menu__list li {
+			margin-right: 15px; /*!*/
+		}
+		.header__logo {
+			width: 130px;
+		}
+
+		.menu__link {
+			font-size: 11px;
+		}
+
+		.menu__link--location {
+			padding-right: 28px;
+		}
+
+		.menu__link--location:after {
+			width: 18px;
+			background-size: contain;
+			right: 5px;
+		}
+
+		.about__motto {
+			margin-bottom: 25px;
+		}
+
+		.motto {
+			height: 300px;
+		}
+
+		.motto__text {
+			max-width: 500px; /*!*/
+			font-size: 20px; /*!*/
+			line-height: 35px; /*!*/
+			bottom: 50px;
+		}
+
+		.text {
+			font-size: 16px;
+			line-height: 28px;
+		}
+
+		.centered-block__button {
+			margin-top: 25px;
+		}
+		.about {
+			margin-bottom: 75px;
+		}
+
+		.index__value {
+			font-size: 44px;
+		}
+
+		.index__parameter {
+			font-size: 11px;
+			line-height: 22px;
+		}
+
+		.ir {
+			&__title {
+				margin-bottom: 16px;
+			}
+			&__text {
+				margin-bottom: 26px;
+			}
+			&__index {
+				margin-bottom: 26px;
+			}
+		}
+		.about {
+			margin-bottom: 60px;
+		}
+		.item-media__image.bluebg {
+			&:after {
+				width: 110%;
+				height: 150%;
+				top: -77px;
+				left: -60px;
+			}
+		}
+
+		.item-media__title {
+			top: 75px;
+			font-size: 18px;
+			line-height: 24px;
+			max-width: 75%;
+		}
+	}
+	/*====================НОВЫЙ БРЕЙКПОИНТ==============*/
+	@media (max-width: 767px) {
+		.header__row {
+			height: 50px;
+			padding: 0 10px;
+		}
+
+		.header__logo {
+			position: relative;
+			z-index: 2;
+		}
+
+		.header__menu {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: -100%;
+			left: 0; /*По умолчанию убираем меню, чтобы вызвать его далее при нажатии на бургер*/
+			z-index: 1;
+			background-color: #fff;
+			padding: 100px 10px 20px 10px;
+			overflow: auto; /*Важный элемент адаптива, чтобы можно было на узких мобилках долистать до всех пунктов меню*/
+			transition: 0.5s 0s;
+			&.active {
+				top: 0;
+			}
+		}
+		.menu__list {
+			display: block;
+		}
+
+		.menu__list li {
+			text-align: center;
+			margin: 0;
+			padding-bottom: 30px;
+			&:last-child {
+				padding-bottom: 0;
+			}
+		}
+
+		.menu__link {
+			font-size: 16px;
+		}
+
+		/*В заготовках в свойствах бургера прописана позиция абсолют, 
+	но html-код в данной ситуации позволяет отказаться от абсолюта.*/
+		.header__burger {
+			display: block; /*Задает для бургера block, а не inline-block. 
+		Но разницы наверное нет, так как высота и ширина фикс.*/
+			width: 40px;
+			height: 30px;
+			position: relative;
+			cursor: pointer; /*!*/
+			z-index: 2;
+		}
+
+		.header__burger span {
+			position: absolute;
+			width: 100%;
+			height: 4px;
+			left: 0;
+			background-color: #646667;
+			transition: 0.3s 0s; /*!*/
+		}
+
+		.header__burger span:nth-child(1) {
+			top: 0;
+		}
+
+		.header__burger span:nth-child(2) {
+			top: 13px;
+			height: 4px;
+		}
+
+		.header__burger span:nth-child(3) {
+			bottom: 0;
+		}
+
+		.header__burger.active span:nth-child(1) {
+			transform: rotate(-45deg);
+			top: 13px;
+		}
+
+		.header__burger.active span:nth-child(2) {
+			display: none;
+		}
+
+		.header__burger.active span:nth-child(3) {
+			transform: rotate(45deg);
+			bottom: 13px;
+		}
+
+		.motto {
+			height: auto;
+			min-height: 250px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.motto__text {
+			max-width: none;
+			text-align: center;
+			padding: 20px;
+			position: relative;
+			bottom: 0;
+		}
+
+		.button {
+			font-size: 14px;
+		}
+		.about {
+			margin-bottom: 50px;
+		}
+
+		.ir {
+			&__title {
+				margin-bottom: 12px;
+			}
+			&__text {
+				margin-bottom: 20px;
+			}
+			&__index {
+				margin-bottom: 20px;
+			}
+		}
+
+		.index {
+			flex-wrap: wrap;
+			justify-content: flex-start;
+		}
+		.index__item {
+			flex: 0 0 50%;
+			&--big {
+				flex: 0 0 100%;
+			}
+		}
+
+		.index__value {
+			font-size: 36px;
+		}
+
+		.index__parameter {
+			font-size: 11px;
+			line-height: 22px;
+		}
+
+		.title {
+			font-size: 25px;
+			line-height: 33px;
+		}
+
+		.text {
+			font-size: 16px;
+			line-height: 24px;
+		}
+
+		.media__radio {
+			&:not(:last-child) {
+				margin-right: 18px;
+			}
+		}
+	}
+	/*====================НОВЫЙ БРЕЙКПОИНТ==============*/
+	@media (max-width: 480px) {
+		.ir {
+			text-align: center;
+		}
+		.button {
+			display: flex;
+			justify-content: center;
+		}
+
+		.media__radio {
+			&:not(:last-child) {
+				margin-right: 27px;
+			}
+		}
+	}
+}
